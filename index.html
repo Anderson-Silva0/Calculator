@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+
+
+    
+    <style>
+
+        div#corpo{
+            background-image: linear-gradient(45deg, black, crimson);
+            height: 100vh;
+            text-align: center;
+        }
+
+        div.calculadora{
+            transform: translateY(-50%);
+            transform: translateX(-50%);
+            border: 2px solid rgb(247, 243, 243);
+            display: inline-block;
+            padding: 10px;
+            position: absolute;
+            box-shadow: 4px 4px 4px black;
+            background-color: rgb(50, 9, 146);
+            border-radius: 5%;
+        }
+
+        div.calculadora button{
+            height: 60px;
+            width: 60px;
+            border: none;
+            margin: 3px;
+            display: block;
+            font-family: sans-serif;
+            font-weight: bolder;
+            font-size: 16pt;
+            border-radius: 20%;
+            box-shadow: 2px 3px 4px rgba(0, 0, 0, .4);
+        }
+
+        button#virgula{
+            margin-left: auto;
+        }
+        
+        button#teste{
+            height: 130px;
+            position: relative;
+            top: 1px;
+        }
+
+        button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+        h1{
+            font-size: 40pt;
+            font-family: 'Lucida Grande';
+            font-weight: bolder;
+        }
+
+        input#inp{
+            width: 93%;
+            border-radius: 40%;
+            padding: 7px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            font-family: sans-serif;
+            font-weight: bolder;
+            font-size: 16pt;
+            color: blue;
+            box-shadow: 2px 3px 4px rgba(0, 0, 0, .5);
+        }
+         
+        table{
+            
+            margin: auto;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div id="corpo">
+        <h1>Anderson Silva</h1>
+        <div class="calculadora">
+            <input type="text" id="inp" readonly></input>
+            <table>
+
+                <tr>
+
+                    <td><button onclick="ce()">CE</button></td>
+                    <td><button onclick="c()">C</button></td>
+                    <td><button onclick="adicao()">+</button></td>
+                    <td><button onclick="divisao()">÷</button></td>
+
+                </tr>
+                    
+                <tr>
+
+                    <td><button onclick="digitar7()">7</button></td>
+                    <td><button onclick="digitar8()">8</button></td>
+                    <td><button onclick="digitar9()">9</button></td>
+                    <td><button onclick="multiplicacao()">×</button></td>
+
+                </tr>
+                    
+                <tr>
+
+                    <td><button onclick="digitar4()">4</button></td>
+                    <td><button onclick="digitar5()">5</button></td>
+                    <td><button onclick="digitar6()">6</button></td>
+                    <td><button onclick="subtracao()">-</button></td>
+
+
+                </tr>
+                    
+                <tr>
+
+                    <td><button onclick="digitar1()">1</button></td>
+                    <td><button onclick="digitar2()">2</button></td>
+                    <td><button onclick="digitar3()">3</button></td>
+                    <td colspan="2" rowspan="2"><button onclick="igual()" id="teste">=</button></td>
+                </tr>
+                    
+                <tr>
+
+                    <td><button onclick="digitar0()">0</button></td>
+                    <td colspan="2"><button id="virgula" onclick="digitarVirgula()">,</button></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+   
+
+<script languague="javascript">
+
+var input = document.getElementById("inp");
+
+            //////////////////////// Teclas ////////////////////////
+function digitar0(){
+    input.value = input.value + '0';
+}
+    function digitar1(){
+        input.value = input.value + '1';  
+    }
+        function digitar2(){
+            input.value = input.value + '2';
+        }
+            function digitar3(){
+                input.value = input.value + '3';
+            }
+                function digitar4(){
+                    input.value = input.value + '4';
+                }
+                function digitar5(){
+                    input.value = input.value + '5';
+                }
+            function digitar6(){
+                input.value = input.value + '6';
+            }
+        function digitar7(){
+            input.value = input.value + '7';
+        }
+    function digitar8(){
+        input.value = input.value + '8';
+    }
+function digitar9(){
+    input.value = input.value + '9';
+}
+
+function digitarVirgula(){
+    input.value = input.value + ".";
+}
+            //////////////////////// Teclas ////////////////////////
+
+
+
+
+var vet = [0,0,0,0,0,0,0,0,0,0];
+var sinal;
+
+    function c(){
+        input.value = "";
+    }
+
+    function ce(){
+        input.value = "";
+        vet[0] = 0;
+        vet[1] = 0;
+        vet[2] = 0;
+        vet[3] = 0;
+        vet[4] = 0;
+        vet[5] = 0;
+        vet[6] = 0;
+        vet[7] = 0;
+        vet[8] = 0;
+        vet[9] = 0;        
+}
+
+
+function adicao(){
+    
+    if(vet[8] != 0){
+        vet[9] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[7] != 0){
+        vet[8] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[6] != 0){
+        vet[7] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[5] != 0){
+        vet[6] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[4] != 0){
+        vet[5] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[3] != 0){
+        vet[4] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[2] != 0){
+        vet[3] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[1] != 0){
+        vet[2] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[0] != 0){
+        vet[1] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[0] == 0){
+        vet[0] = Number(input.value);
+        input.value = "";
+    }
+        
+    sinal = "+";
+
+}
+
+function subtracao(){
+
+    if(vet[8] != 0){
+        vet[9] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[7] != 0){
+        vet[8] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[6] != 0){
+        vet[7] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[5] != 0){
+        vet[6] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[4] != 0){
+        vet[5] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[3] != 0){
+        vet[4] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[2] != 0){
+        vet[3] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[1] != 0){
+        vet[2] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[0] != 0){
+        vet[1] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[0] == 0){
+        vet[0] = Number(input.value);
+        input.value = "";
+    }
+        
+    sinal = "-";
+
+}
+
+function multiplicacao(){
+    
+    if(vet[8] != 0){
+        vet[9] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[7] != 0){
+        vet[8] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[6] != 0){
+        vet[7] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[5] != 0){
+        vet[6] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[4] != 0){
+        vet[5] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[3] != 0){
+        vet[4] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[2] != 0){
+        vet[3] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[1] != 0){
+        vet[2] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[0] != 0){
+        vet[1] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[0] == 0){
+        vet[0] = Number(input.value);
+        input.value = "";
+    }
+        
+    sinal = "x";
+
+}
+
+function divisao(){
+    
+    if(vet[8] != 0){
+        vet[9] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[7] != 0){
+        vet[8] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[6] != 0){
+        vet[7] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[5] != 0){
+        vet[6] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[4] != 0){
+        vet[5] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[3] != 0){
+        vet[4] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[2] != 0){
+        vet[3] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[1] != 0){
+        vet[2] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[0] != 0){
+        vet[1] = Number(input.value);
+        input.value = "";
+    }else
+    if(vet[0] == 0){
+        vet[0] = Number(input.value);
+        input.value = "";
+    }
+        
+    sinal = "/";
+
+}
+
+function igual(){
+    var calculo;
+    
+    vet[9] = Number(input.value);
+    
+    if(sinal == "+"){
+            
+        calculo = vet[0] + vet[1]+ vet[2]+ vet[3]+ vet[4]+ vet[5]+ vet[6]+ vet[7]+ vet[8]+ vet[9];
+            
+        input.value = calculo;
+
+        vet[0] = 0;
+        vet[1] = 0;
+        vet[2] = 0;
+        vet[3] = 0;
+        vet[4] = 0;
+        vet[5] = 0;
+        vet[6] = 0;
+        vet[7] = 0;
+        vet[8] = 0;
+        vet[9] = 0;          
+        }
+ 
+        if(sinal == "-"){
+            
+            calculo = vet[0] - vet[1] - vet[2] - vet[3] - vet[4] - vet[5] - vet[6]+ vet[7] - vet[8] - vet[9];
+                
+            input.value = calculo;
+
+            vet[0] = 0;
+            vet[1] = 0;
+            vet[2] = 0;
+            vet[3] = 0;
+            vet[4] = 0;
+            vet[5] = 0;
+            vet[6] = 0;
+            vet[7] = 0;
+            vet[8] = 0;
+            vet[9] = 0;          
+            }
+
+            if(sinal == "x"){
+             if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[4] 
+                    != 0 && vet[5] != 0 &&vet[6] != 0 && vet[7] != 0 && vet[8] != 0 && vet[9] != 0){
+                calculo = vet[0] * vet[1] * vet[2] * vet[3] * vet[4] * vet[5] * vet[6] * vet[7] * vet[8] * vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[4] 
+                    != 0 && vet[5] != 0 &&vet[6] != 0 && vet[7] != 0 && vet[9] != 0){
+                calculo = vet[0] * vet[1] * vet[2] * vet[3] * vet[4] * vet[5] * vet[6] * vet[7] * vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[4] 
+                    != 0 && vet[5] != 0 &&vet[6] != 0 && vet[9] != 0){
+                calculo = vet[0] * vet[1] * vet[2] * vet[3] * vet[4] * vet[5] * vet[6] * vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[4] 
+                    != 0 && vet[5] != 0 && vet[9] != 0){
+                calculo = vet[0] * vet[1] * vet[2] * vet[3] * vet[4] * vet[5] * vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[4] 
+                    != 0 && vet[9] != 0){
+                calculo = vet[0] * vet[1] * vet[2] * vet[3] * vet[4] * vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[9] != 0){
+                calculo = vet[0] * vet[1] * vet[2] * vet[3] * vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[9] != 0){
+                calculo = vet[0] * vet[1] * vet[2] * vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[9] != 0){
+                calculo = vet[0] * vet[1] * vet[9];
+            }else if(vet[0] != 0 && vet[9] != 0){
+                calculo = vet[0] * vet[9];
+            }
+            
+                input.value = calculo;
+
+        vet[0] = 0;
+        vet[1] = 0;
+        vet[2] = 0;
+        vet[3] = 0;
+        vet[4] = 0;
+        vet[5] = 0;
+        vet[6] = 0;
+        vet[7] = 0;
+        vet[8] = 0;
+        vet[9] = 0;          
+        }
+
+        if(sinal == "/"){
+             if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[4] 
+                    != 0 && vet[5] != 0 &&vet[6] != 0 && vet[7] != 0 && vet[8] != 0 && vet[9] != 0){
+                calculo = vet[0] / vet[1] / vet[2] / vet[3] / vet[4] / vet[5] / vet[6] / vet[7] / vet[8] / vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[4] 
+                    != 0 && vet[5] != 0 &&vet[6] != 0 && vet[7] != 0 && vet[9] != 0){
+                calculo = vet[0] / vet[1] / vet[2] / vet[3] / vet[4] / vet[5] / vet[6] / vet[7] / vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[4] 
+                    != 0 && vet[5] != 0 &&vet[6] != 0 && vet[9] != 0){
+                calculo = vet[0] / vet[1] / vet[2] / vet[3] / vet[4] / vet[5] / vet[6] / vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[4] 
+                    != 0 && vet[5] != 0 && vet[9] != 0){
+                calculo = vet[0] / vet[1] / vet[2] / vet[3] / vet[4] / vet[5] / vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[4] 
+                    != 0 && vet[9] != 0){
+                calculo = vet[0] / vet[1] / vet[2] / vet[3] / vet[4] / vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[3] != 0 && vet[9] != 0){
+                calculo = vet[0] / vet[1] / vet[2] / vet[3] / vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[2] != 0 && vet[9] != 0){
+                calculo = vet[0] / vet[1] / vet[2] / vet[9];
+            }else if(vet[0] != 0 && vet[1] != 0 && vet[9] != 0){
+                calculo = vet[0] / vet[1] / vet[9];
+            }else if(vet[0] != 0 && vet[9] != 0){
+                calculo = vet[0] / vet[9];
+            }
+            
+                input.value = calculo;
+
+        vet[0] = 0;
+        vet[1] = 0;
+        vet[2] = 0;
+        vet[3] = 0;
+        vet[4] = 0;
+        vet[5] = 0;
+        vet[6] = 0;
+        vet[7] = 0;
+        vet[8] = 0;
+        vet[9] = 0;          
+        }
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+</html>
