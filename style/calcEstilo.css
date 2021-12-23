@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Comforter&family=Road+Rage&display=swap');
+
+body{
+    background-color: black;
+}
+
+div#corpo{
+    background: url("/image/foto.png") no-repeat -60px;
+    color: blue;
+    text-align: center;
+    position: absolute;
+    width: 1325px;
+    height: 800px;
+    left: 5px;
+    box-sizing: border-box;
+    margin-top: -15px;
+    margin-left: 15px;
+}
+
+div#calculadora{
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+    border: 2px solid rgba(255, 255, 255, .4);
+    display: inline-block;
+    width: 615px;
+    height: 272px;
+    padding: 10px;
+    position: relative;
+    box-shadow: 4px 4px 4px black;
+    margin-top: -17px;
+    border-radius: 5%;
+    left: 320px;
+    background-color: rgba(255,255,255,.1);
+}
+   
+div#calculadora button{
+    height: 50px;
+    width: 50px;
+    border: none;
+    margin: 3px;
+    display: block;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 16pt;
+    border-radius: 20%;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, .4);
+    background-color: rgba(255, 255, 255, .8);
+}
+div#calculadora button:hover{
+    height: 50px;
+    width: 50px;
+    border: none;
+    margin: 3px;
+    display: block;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 16pt;
+    border-radius: 20%;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+div#calculadora button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+h1{
+    font-size: 40pt;
+    font-family: 'Lucida Grande';
+    font-weight: bolder;
+}
+
+input#inp{
+    background-color: rgba(255, 255, 255, .8);
+    width: 50%;
+    border-radius: 40%;
+    padding: 7px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 16pt;
+    color: #8B0000;
+    box-shadow: 2px 3px 4px rgba(0, 0, 0, .5);
+    position: relative;
+}
+ 
+table{
+    margin: auto;
+}
+
+h1{
+    color: #8B0000;
+    font-size: 55pt;
+    margin-top: 20px;
+    font-family: 'Comforter', cursive;
+    margin-left: 15px;
+}
+    h1:hover{
+        transition: 1s;
+        color: #f80000;
+        font-size: 55pt;
+        margin-top: 20px;
+        font-family: 'Comforter', cursive;
+        margin-left: 15px;
+    }
+
+h2{
+    color: #8B0000;
+    font-size: 35pt;
+    margin-top: -50px;
+    font-family: 'Comforter', cursive;
+    margin-left: 18px;
+}
+    h2:hover{
+        transition: 1s;
+        color: #f80000;
+        font-size: 35pt;
+        margin-top: -50px;
+        font-family: 'Comforter', cursive;
+        margin-left: 18px;
+    }
+    img#dragaoImg{
+        width: 250px;
+        height: 150px;
+        position: absolute;
+        left: 120px;
+        top: 77px;
+        border-radius: 20%;
+        display: none;
+    }
