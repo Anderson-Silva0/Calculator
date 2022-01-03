@@ -60,10 +60,6 @@ var sinal;
 
     function c(){
         input.value = "";
-    }
-
-    function ce(){
-        input.value = "";
         vet[0] = 0;
         vet[1] = 0;
         vet[2] = 0;
@@ -73,7 +69,11 @@ var sinal;
         vet[6] = 0;
         vet[7] = 0;
         vet[8] = 0;
-        vet[9] = 0;        
+        vet[9] = 0;    
+    }
+
+    function ce(){
+        input.value = "";    
 }
 
 
